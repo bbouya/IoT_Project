@@ -33,3 +33,56 @@ except ImportError:
     import ibmiotf.application
     import ibmiotf.device
 
+
+def myAppEventCallback(event):
+	print("Received live data from %s (%s) sent at %s: hello=%s x=%s" % (event.deviceId, event.deviceType, event.timestamp.strftime("%H:%M:%S"), data['hello'], data['x']))
+
+def myCommandCallback(cmd):
+  print("Command received: %s" % cmd.payload)
+  if cmd.command == "on":
+    print("Turning Light ON")
+    GPIO.output(3,1)
+
+  elif cmd.command == "off":  
+    print("Turning Light OFF")
+    GPIO.output(3,0) 
+
+print       
+#####################################
+#FILL IN THESE DETAILS
+#####################################     
+organization = ""
+deviceType = ""
+deviceId = ""
+appId = str(uuid.uuid4())
+authMethod = "token"
+authToken = ""
+
+# Initialize the device client.
+try:
+	deviceOptions = {"org": organization, "type": deviceType, "id": deviceId, "auth-method": authMethod, "auth-token": authToken}
+	deviceCli = ibmiotf.device.Client(deviceOptions)
+except Exception as e:
+	print(str(e))
+	sys.exit()
+
+# Connect and send a datapoint "hello" with value "world" into the cloud as an event of type "greeting" 10 times
+deviceCli.connect()
+deviceCli.commandCallback = myCommandCallback
+#x=0
+while(1):
+	lightStatus=GPIO.input(7)
+	if lightStatus==0:
+		ls='ON'
+	else:
+		ls='OFF'
+	intruder=GPIO.input(11)
+	data = { 'LightStatus': ls, 'Intruder': intruder}
+        deviceCli.publishEvent("status", data)
+	#x=x+1
+	time.sleep(1)
+		
+
+# Disconnect the device and application from the cloud
+deviceCli.disconnect()
+#appCli.disconnect()
