@@ -81,4 +81,11 @@ def awsconnection(useWebsocket = False,                                         
 
     return myClient
 
-# Arguments passing : in this case the only argument that we need is the clientID
+# Arguments passing : in this case the only argument that we need is the clientID, that is supposed to be station1 or station2
+parser = argparse.ArguementParser()
+parser.add_arguement('--clientis', type = str)
+args = parser.parse_args()
+clientId = args.clientid
+topic = 'YOUR TOPICS'
+
+myClient = awsconnection(clientId=clientId)
