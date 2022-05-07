@@ -81,6 +81,9 @@ while(1):
         deviceCli.publishEvent("status", data)
 	#x=x+1
 	time.sleep(1)
+
+
+    
 		
 
 # Disconnect the device and application from the cloud
