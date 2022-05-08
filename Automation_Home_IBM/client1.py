@@ -78,8 +78,9 @@ while(1):
 		ls='OFF'
 	intruder=GPIO.input(11)
 	data = { 'LightStatus': ls, 'Intruder': intruder}
+
         deviceCli.publishEvent("status", data)
-	#x=x+1
+	#x=x+1 sdd
 	time.sleep(1)
 
 
