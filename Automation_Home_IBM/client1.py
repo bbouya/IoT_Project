@@ -81,6 +81,8 @@ while(1):
 
         deviceCli.publishEvent("status", data)
 	#x=x+1 sdd
+
+  # Sleep
 	time.sleep(1)
 
 
