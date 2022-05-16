@@ -18,5 +18,14 @@ This command sets up a new virtual environment named env in your current working
 foo@bar:~$ env/bin/activate
 foo
 ```
-
+## Warning : 
+Before you activate you env or  ven in your IDE in my case it was Vscode.
+You need to autorise l'execution of the Scripts POWERSHELL :
+1. Execute your powershell(Admin) and after that write the commande line :
+```console
+foo@bar:~$ set-executionpolicy unrestricted
+foo
+```
+2. Valide by answering  <O>
+3. you can know activate you env in your vscode (autorisation of utilisation powershell is active know)
 
