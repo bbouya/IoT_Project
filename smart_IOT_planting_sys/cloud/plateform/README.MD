@@ -5,4 +5,15 @@ Browser shows the data from sensor, devices status, and other information beside
     - jQuery, Ajax(support notification)
     - JSON parser
     - Visualization framework
+# Preparation your Env
+when you'are ready to start your new Django web application, create a new folder and navigate into it. In this folder, you'will set up a new virtual environment using your command line:
+
+```console
+foo@bar:~$ python -m venv env
+foo
+```
+{{python -m venv env}}
+
+This command sets up a new virtual environment named env in your current working directory, once the proocess is complete, you also need to activate the virtual environment: 
+
 
