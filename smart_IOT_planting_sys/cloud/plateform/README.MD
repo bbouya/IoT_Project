@@ -12,8 +12,11 @@ when you'are ready to start your new Django web application, create a new folder
 foo@bar:~$ python -m venv env
 foo
 ```
-{{python -m venv env}}
 
 This command sets up a new virtual environment named env in your current working directory, once the proocess is complete, you also need to activate the virtual environment: 
+```console
+foo@bar:~$ env/bin/activate
+foo
+```
 
 
