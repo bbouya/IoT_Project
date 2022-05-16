@@ -29,3 +29,19 @@ foo
 2. Valide by answering  <O>
 3. you can know activate you env in your vscode (autorisation of utilisation powershell is active know)
 
+## Install Django and pin your dependency :
+Once you'have created and activated your python virtual environement,
+```console
+foo@bar:~$ python -m pip install django
+foo
+```
+This command fetches the django from the package index(Pypi) using pip, after the installation has completed, you can pin your dependencies to make sur that you'are keeping track of which djanfo version you installed :
+```console
+foo@bar:~$ python -m pip freeze > requirements.txt
+foo
+```
+this command writes the names and version of all external python packages that are currently in your virtual environment to file called requirements.txt, this file will include the django package and all of it dependencies.
+```console
+(ven)foo@bar:~$ python -m pip install django == 2.2.11
+foo
+```
